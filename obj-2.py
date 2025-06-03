@@ -24,8 +24,7 @@ class game(): # manage input/ output
             last_input = first_input.replace(" ", "").split(",")
             
             if len(last_input) != 38:
-                print(f"最初の名前の2つを除いて入力した数：{len(last_input)}")
-                print("３８個までちゃんと入れろ")
+                print(f"最初の名前の2つを除いて入力した数：{(len(last_input)-2)}\n36個までちゃんと入れろ")
                 continue
             
             p1_name = last_input[0]
@@ -51,13 +50,13 @@ class game(): # manage input/ output
         p2_result = self.player2.calc_score()
         # 2 lines above : accessing the players(object)' infos which created at line 45,46
         
-        print(f"player 1 score : {self.player1.score}"+f"\nThe result is +{p1_result}") # Use score attributes from the player objects
-        print(f"player 2 score : {self.player2.score}"+f"\nThe result is +{p2_result}") # Use score attributes from the player objects
+        print(f"player 1 score : {self.player1.score}"+f"\nThe result is {p1_result}") # Use score attributes from the player objects
+        print(f"player 2 score : {self.player2.score}"+f"\nThe result is {p2_result}") # Use score attributes from the player objects
         
         if p1_result > p2_result:
-            print("player 1 win")
+            print(f"{self.player1.name} win")
         elif p1_result < p2_result:
-            print("player 2 win")
+            print(f"{self.player2.name} win")
         else:
             print("draw")
             
