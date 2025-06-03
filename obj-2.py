@@ -39,10 +39,10 @@ class game(): # manage input/ output
                     print("0 < input pls")
                     break
             else:
-                p1_score = list(map(int, last_input[2:20])) # splitting and saving parts of input string into player score accordingly
-                p2_score = list(map(int, last_input[20:38])) # splitting and saving parts of input string into player score accordingly
-                self.player1 = player(p1_name, p1_score) # creating player1 objects
-                self.player2 = player(p2_name, p2_score) # creating player2 objects
+                p1_score = list(map(int, last_input[2:20]))  # splitting and saving parts of input string into player score accordingly
+                p2_score = list(map(int, last_input[20:38]))  # splitting and saving parts of input string into player score accordingly
+                self.player1 = player(p1_name, p1_score)  # creating player1 objects
+                self.player2 = player(p2_name, p2_score)  # creating player2 objects
                 break
 
     def show_result(self):
@@ -64,7 +64,3 @@ if __name__ == "__main__":
     golf = game()
     golf.info_input()
     golf.show_result()
-    
-    
-#まとめ 
-# 
