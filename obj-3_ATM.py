@@ -71,7 +71,7 @@ if __name__ == "__main__":
     user = User("1234", 1000000)
     atm = ATM(user)
     atm.input_pin()
-    for choice in range(1,3):
+    while True:
         choice = int(input("引き出し(1)？預かり入れ？(2)？残高表示(3)："))
         
         if choice == 1:
