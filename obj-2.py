@@ -4,7 +4,7 @@ class player(): # holding players' info and pars list
         self.name = name
         self.score = score
                 
-    def calc_score(self): # 
+    def calc_score(self): # score calculation, having access to score and par list
         # modify line 11 and pass the list pa and name, score in order to use this func in game class
         total_diff = score_diff = 0
         for i in range(len(self.pa)):
@@ -46,9 +46,9 @@ class game(): # manage input/ output
                 break
 
     def show_result(self):
+        # accessing the players(object)' infos which created at line 45,46
         p1_result = self.player1.calc_score() 
         p2_result = self.player2.calc_score()
-        # 2 lines above : accessing the players(object)' infos which created at line 45,46
         
         print(f"player 1 score : {self.player1.score}"+f"\nThe result is {p1_result}") # Use score attributes from the player objects
         print(f"player 2 score : {self.player2.score}"+f"\nThe result is {p2_result}") # Use score attributes from the player objects
