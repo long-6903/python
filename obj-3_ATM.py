@@ -12,14 +12,14 @@ class User:
     def getBalance(self):
         return self.balance
     
-    def withdraw_request(self, withdrawAmount):
+    def withdraw_process(self, withdrawAmount):
         if withdrawAmount > self.balance:
             return False
         else:
             self.balance -= withdrawAmount
             return True
             
-    def deposit_request(self, depositAmount):
+    def deposit_process(self, depositAmount):
         self.balance += depositAmount
         return self.balance
         
@@ -41,20 +41,21 @@ class ATM:
                 print("pinは正解")
                 break
 
-    def withdraw_process(self):
+    def withdraw_request(self):
         amount = input("引き出す金額を入力：").strip().replace(" ","")
         if not amount.isdigit():
             print("数字だけにしろ")
-            return
+            return # continue and break can only be used inside of a loop so use is used for ending the method/action
         
         amount = int(amount)
-        if not self.current_user.withdraw_request(amount):
+        if not self.current_user.withdraw_process(amount): 
+        # call the withdraw_process in User class to check if the amount matches the conditions or not
             print("残高が足りない")
-            return
+            return # same as the return used above
         else:
-            print(f"残高：{self.current_user.balance}")
+            print(f"残高：{self.current_user.balance}") # getting user balance from current_user(can be accessed to "self."") object 
             
-    def deposit_process(self):
+    def deposit_request(self):
         amount = input("預かり入れ金額を入力：").strip().replace(" ","")
         if not amount.isdigit():
             print("数字だけにしろ")
@@ -75,10 +76,10 @@ if __name__ == "__main__":
         choice = int(input("引き出し(1)？預かり入れ？(2)？残高表示(3)："))
         
         if choice == 1:
-            atm.withdraw_process()
+            atm.withdraw_request()
             break
         elif choice == 2:
-            atm.deposit_process()
+            atm.deposit_request()
             break  
         elif choice == 3:
             atm.show_balance()
