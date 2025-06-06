@@ -62,7 +62,7 @@ class ATM:
             return
         
         amount = int(amount)
-        new_balance = self.current_user.deposit_request(amount)
+        new_balance = self.current_user.deposit_process(amount)
         print(f"残高：{new_balance}")
         
     def show_balance(self):
